@@ -20,6 +20,7 @@ export class DemoComponent implements OnInit {
   idProvincia = 2;
   visible = true;
   conEstilo = { error: false, importante: true, destacar: false };
+  font = 24;
 
   constructor(private out: LoggerService, private nsrv: NotifyService) { }
 
