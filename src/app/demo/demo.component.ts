@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggerService } from '../../agio-core';
+import { LoggerService, ElipsisPipe } from '../../agio-core';
 import { NotifyService } from '../services/notify.service';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.less']
 })
 export class DemoComponent implements OnInit {
   // tslint:disable-next-line:no-inferrable-types
@@ -34,7 +34,8 @@ export class DemoComponent implements OnInit {
   }
 
   public despide() {
-    this.resultado = `Adios ${this.nombre}`;
+    const pipe = new ElipsisPipe();
+    this.resultado = pipe.transform(`Adios ${this.nombre}`, 20);
   }
 
   public di(algo: string): void {
