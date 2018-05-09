@@ -7,7 +7,6 @@ import { NotifyService } from './services/notify.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent /*implements OnInit*/ {
-  title = 'Hola Mundo';
 /*
   constructor(private ns: NotifyService) {
   }
