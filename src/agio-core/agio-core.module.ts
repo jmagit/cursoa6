@@ -2,13 +2,14 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontSizerComponent } from './components/font-sizer.component';
 import { CADENAS_PIPES } from './pipes/cadenas.pipe';
+import { NUMERICOS_PIPES } from './pipes/numericos.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ FontSizerComponent, CADENAS_PIPES, ],
-  exports: [ FontSizerComponent, CADENAS_PIPES ],
+  declarations: [ FontSizerComponent, CADENAS_PIPES, NUMERICOS_PIPES, ],
+  exports: [ FontSizerComponent, CADENAS_PIPES, NUMERICOS_PIPES, ],
 })
 export class AgioCoreModule {
   constructor( @Optional() @SkipSelf() parentModule: AgioCoreModule) {

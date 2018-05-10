@@ -1,4 +1,10 @@
-import { NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import localeEsExtra from '@angular/common/locales/extra/es';
+
+registerLocaleData(localeEs, 'es', localeEsExtra);
+
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AgioCoreModule, LoggerService, ERROR_LEVEL } from '../agio-core';
@@ -24,6 +30,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
   providers: [
     LoggerService,
     {provide: ERROR_LEVEL, useValue: 4 },
+    { provide: LOCALE_ID, useValue: 'es' },
   ],
   bootstrap: [AppComponent]
 })
