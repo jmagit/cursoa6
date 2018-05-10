@@ -15,7 +15,7 @@ import { DemoComponent } from './demo/demo.component';
 import { PopupComponent } from './popup/popup.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
-import { PersonasComponent } from './personas/personas.component';
+import { PERSONAS_COMPONENT } from './personas/personas.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { PersonasComponent } from './personas/personas.component';
     PopupComponent,
     CalculadoraComponent,
     DinamicosComponent,
-    PersonasComponent
+    PERSONAS_COMPONENT
   ],
   imports: [
     BrowserModule, FormsModule,
