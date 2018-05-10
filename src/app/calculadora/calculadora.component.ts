@@ -113,19 +113,19 @@ export class CalculadoraComponent implements OnInit, OnChanges {
     // acumulado = eval (acumulado + this.operador + this.pantalla);
     this.resumen = value === '=' ? '' : (this.resumen + this.pantalla + value);
     this.pantalla = this.acumulado.toString();
-    this.updated.emit(this.pantalla);
+    this.updated.emit(this.acumulado);
     this.operador = value;
     this.limpiar = true;
   }
 
   ngOnInit() {
-    if (this.init) {
-      this.ponOperando(this.init);
-    }
-  }
-  ngOnChanges(changes: SimpleChanges): void {
     // if (this.init) {
     //   this.ponOperando(this.init);
     // }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.init) {
+      this.ponOperando(this.init);
+    }
   }
 }
