@@ -6,12 +6,16 @@ import { AgioCoreModule, LoggerService, ERROR_LEVEL } from '../agio-core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
+import { PopupComponent } from './popup/popup.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DemoComponent
+    DemoComponent,
+    PopupComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule, FormsModule,
