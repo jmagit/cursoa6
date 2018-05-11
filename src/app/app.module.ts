@@ -17,6 +17,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { PersonasVMService } from './personas/personas-vm.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PersonasVMService } from './personas/personas-vm.service';
   ],
   imports: [
     BrowserModule, FormsModule,
-    AgioCoreModule
+    AgioCoreModule,
+    NgbModule.forRoot()
   ],
   providers: [
     LoggerService,
