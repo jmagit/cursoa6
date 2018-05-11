@@ -41,7 +41,7 @@ export class PersonasVMService {
       this.elemento = Object.assign({}, rslt);
       this.idOriginal = key;
     } else {
-      this.nsrv.add('Elemento no encontrdo.');
+      this.nsrv.add('encontrado');
     }
   }
 
@@ -52,7 +52,7 @@ export class PersonasVMService {
       this.modo = 'view';
       this.elemento = Object.assign({}, rslt);
     } else {
-      this.nsrv.add('Elemento no encontrdo.');
+      this.nsrv.add('encontrado');
     }
   }
 
@@ -64,7 +64,7 @@ export class PersonasVMService {
       this.listado.splice(indice, 1);
       this.list();
     } else {
-      this.nsrv.add('Elemento no encontrdo.');
+      this.nsrv.add('encontrado');
     }
   }
 
@@ -87,7 +87,7 @@ export class PersonasVMService {
             this.listado[indice] = this.elemento;
             this.list();
           } else {
-            this.nsrv.add('Elemento no encontrdo.');
+            this.nsrv.add('encontrado');
           }
           break;
       case 'view':

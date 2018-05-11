@@ -18,6 +18,7 @@ import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { PersonasVMService } from './personas/personas-vm.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BLOG_COMPONENT } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PopupComponent,
     CalculadoraComponent,
     DinamicosComponent,
-    PERSONAS_COMPONENT
+    PERSONAS_COMPONENT, BLOG_COMPONENT,
   ],
   imports: [
     BrowserModule, FormsModule,
