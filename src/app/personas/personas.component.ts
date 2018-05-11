@@ -9,7 +9,7 @@ import { PersonasVMService } from './personas-vm.service';
 export class PersonasComponent implements OnInit {
 
   constructor(private vm: PersonasVMService) { }
-  public VM() { return this.vm; }
+  public get VM() { return this.vm; }
 
   ngOnInit() {
     this.vm.list();
@@ -24,7 +24,7 @@ export class PersonasComponent implements OnInit {
 export class PersonasListComponent implements OnInit {
 
   constructor(private vm: PersonasVMService) { }
-  public VM() { return this.vm; }
+  public get VM() { return this.vm; }
 
   ngOnInit() {
   }
@@ -39,7 +39,7 @@ export class PersonasListComponent implements OnInit {
 export class PersonasAddComponent implements OnInit {
 
   constructor(private vm: PersonasVMService) { }
-  public VM() { return this.vm; }
+  public get VM() { return this.vm; }
 
   ngOnInit() {
   }
@@ -54,7 +54,7 @@ export class PersonasAddComponent implements OnInit {
 export class PersonasEditComponent implements OnInit {
 
   constructor(private vm: PersonasVMService) { }
-  public VM() { return this.vm; }
+  public get VM() { return this.vm; }
 
   ngOnInit() {
   }
@@ -69,7 +69,7 @@ export class PersonasEditComponent implements OnInit {
 export class PersonasViewComponent implements OnInit {
 
   constructor(private vm: PersonasVMService) { }
-  public VM() { return this.vm; }
+  public get VM() { return this.vm; }
 
   ngOnInit() {
   }

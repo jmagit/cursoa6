@@ -16,6 +16,7 @@ import { PopupComponent } from './popup/popup.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
+import { PersonasVMService } from './personas/personas-vm.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PERSONAS_COMPONENT } from './personas/personas.component';
     LoggerService,
     {provide: ERROR_LEVEL, useValue: 4 },
     { provide: LOCALE_ID, useValue: 'es' },
+    PersonasVMService,
   ],
   bootstrap: [AppComponent]
 })

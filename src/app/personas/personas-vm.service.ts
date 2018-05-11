@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { NotifyService } from '../services/notify.service';
 import { LoggerService } from '../../agio-core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PersonasVMService {
   private modo: 'list' | 'add' | 'edit' | 'view' | 'delete' = 'list';
   private listado: Array<any> = [];
@@ -14,13 +12,13 @@ export class PersonasVMService {
 
   constructor(private nsrv: NotifyService, private out: LoggerService) { }
 
-  public Modo() { return this.modo; }
-  public Listado() { return this.listado; }
-  public Elemento() { return this.elemento; }
+  public get Modo() { return this.modo; }
+  public get Listado() { return this.listado; }
+  public get Elemento() { return this.elemento; }
 
   public list() {
     this.modo = 'list';
-    if (this.listado.length > 0 ) {
+    if (this.listado.length === 0 ) {
       this.listado = [
         { id: 1, nombre: 'Carmelo', apellidos: 'Coton', edad: 34},
         { id: 2, nombre: 'Pepito', apellidos: 'Grillo', edad: 155},
