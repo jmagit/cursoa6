@@ -7,7 +7,7 @@ registerLocaleData(localeEs, 'es', localeEsExtra);
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AgioCoreModule, LoggerService, ERROR_LEVEL } from '../agio-core';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { PersonasVMService, PersonasDAOVMService } from './personas/personas-vm.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BLOG_COMPONENT } from './blog/blog.component';
+import { AuthInterceptor, LoggingInterceptor } from './services/serguridad.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { BLOG_COMPONENT } from './blog/blog.component';
     PopupComponent,
     CalculadoraComponent,
     DinamicosComponent,
-    PERSONAS_COMPONENT, BLOG_COMPONENT,
+    PERSONAS_COMPONENT, BLOG_COMPONENT, LoginComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
@@ -38,9 +40,11 @@ import { BLOG_COMPONENT } from './blog/blog.component';
   ],
   providers: [
     LoggerService,
-    {provide: ERROR_LEVEL, useValue: 4 },
-    {provide: LOCALE_ID, useValue: 'es' },
-    {provide: PersonasVMService, useClass: PersonasDAOVMService},
+    { provide: ERROR_LEVEL, useValue: 4 },
+    { provide: LOCALE_ID, useValue: 'es' },
+    { provide: PersonasVMService, useClass: PersonasDAOVMService },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })

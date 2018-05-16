@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class PersonasDAOService {
   private baseUrl = environment.WSUrl + 'personas';
-  private options = {};
+  private options = { withCredentials: true };
 
   constructor(private http: HttpClient) { }
   query(): Observable<any> {
