@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpInterceptor, HttpRequest, HttpHandle
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 import { LoggerService } from '../../agio-core';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -102,3 +103,10 @@ export class LoggingInterceptor implements HttpInterceptor {
     }
 }
 
+@Injectable({providedIn: 'root'})
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    return this.authService.isAutenticated;
+  }
+}

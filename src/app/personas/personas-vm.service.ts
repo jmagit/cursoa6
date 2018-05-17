@@ -4,6 +4,7 @@ import { LoggerService } from '../../agio-core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class PersonasDAOService {
@@ -35,8 +36,10 @@ export class PersonasDAOVMService {
   private elemento: any = {};
   private idOriginal = null;
   protected pk = 'id';
+  protected urllist = '/personas';
 
-  constructor(private dao: PersonasDAOService, private nsrv: NotifyService, private out: LoggerService) { }
+  constructor(private dao: PersonasDAOService, private nsrv: NotifyService,
+    private out: LoggerService, private router: Router) { }
 
   public get Modo() { return this.modo; }
   public get Listado() { return this.listado; }
@@ -89,7 +92,8 @@ export class PersonasDAOVMService {
   public cancel() {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    // this.list();
+    this.router.navigateByUrl(this.urllist);
   }
 
   public send() {
