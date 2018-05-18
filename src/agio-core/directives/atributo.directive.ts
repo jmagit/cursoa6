@@ -3,7 +3,9 @@ import { Directive, Input, Output, HostListener, EventEmitter, HostBinding, OnIn
 // tslint:disable-next-line:directive-selector
 @Directive({  selector: '[agioWinConfirm]' })
 export class WindowConfirmDirective implements OnInit {
+  // tslint:disable-next-line:no-input-rename
   @Input('agioWinConfirmMessage') winConfirmMessage = '¿Seguro?';
+  // tslint:disable-next-line:no-output-rename
   @Output('agioWinConfirm') winConfirm: EventEmitter<any> = new EventEmitter();
   @HostBinding('class.pressed') isPressed: boolean = false;
 

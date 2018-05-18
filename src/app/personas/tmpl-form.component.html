@@ -21,7 +21,7 @@
     <dt>Apellidos:</dt>
     <dd>
         <input type="email" name="apellidos" id="apellidos" [(ngModel)]="VM.Elemento.apellidos" #apellidos="ngModel"
-          minlength="2" maxlength="10" upperCase validateEqual="nombre">{{ apellidos.errors | json }}
+          minlength="2" maxlength="10" valnif>{{ apellidos.errors | json }}
         <span class="errorMsg" [hidden]="!apellidos.errors?.minlength && !apellidos.errors?.maxlength">
             Debe tener entre 2 y 10 caracteres.
         </span>

@@ -21,7 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { PopupComponent } from './popup/popup.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { DinamicosComponent } from './dinamicos/dinamicos.component';
+import { DinamicosComponent, DynamicComponent, MyHostDirective } from './dinamicos/dinamicos.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { BLOG_COMPONENT } from './blog/blog.component';
 import { LoginComponent } from './login/login.component';
@@ -35,7 +35,7 @@ import { MenuComponent } from './menu/menu.component';
     DemoComponent,
     PopupComponent,
     CalculadoraComponent,
-    DinamicosComponent,
+    DinamicosComponent, DynamicComponent, MyHostDirective,
     PERSONAS_COMPONENT, BLOG_COMPONENT, LoginComponent, PageNotFoundComponent, MenuComponent,
   ],
   imports: [

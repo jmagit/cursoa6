@@ -6,6 +6,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasListComponent, PersonasViewComponent, PersonasEditComponent, PersonasAddComponent } from './personas/personas.component';
 import { BlogListComponent, BlogViewComponent, BlogAddComponent, BlogEditComponent } from './blog/blog.component';
 import { AuthGuard } from './services/serguridad.service';
+import { DinamicosComponent, DynamicComponent } from './dinamicos/dinamicos.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -26,6 +27,7 @@ export const routes: Routes = [
     ]
   },
   { path: 'config', loadChildren: './setting/setting.module#SettingModule'},
+  { path: 'dinamico', component: DynamicComponent },
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
