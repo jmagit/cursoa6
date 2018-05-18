@@ -7,6 +7,7 @@ import { PersonasListComponent, PersonasViewComponent, PersonasEditComponent, Pe
 import { BlogListComponent, BlogViewComponent, BlogAddComponent, BlogEditComponent } from './blog/blog.component';
 import { AuthGuard } from './services/serguridad.service';
 import { DinamicosComponent, DynamicComponent } from './dinamicos/dinamicos.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -28,6 +29,7 @@ export const routes: Routes = [
   },
   { path: 'config', loadChildren: './setting/setting.module#SettingModule'},
   { path: 'dinamico', component: DynamicComponent },
+  { path: 'registro', component: RegisterUserComponent },
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

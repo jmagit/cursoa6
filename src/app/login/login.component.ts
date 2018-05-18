@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/serguridad.service';
 import { NotifyService } from '../services/notify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   txtUsuario = 'admin';
   txtPassword = 'P@$$w0rd';
 
-  constructor(public login: LoginService, private nsrv: NotifyService) { }
+  constructor(public login: LoginService, private nsrv: NotifyService, private router: Router) { }
 
   ngOnInit() {
     this.cambiaTexto();
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
         err => { this.nsrv.add(err.message); }
       );
     }
+  }
+
+  registrar() {
+    this.router.navigateByUrl('/registro');
   }
 
   private cambiaTexto() {

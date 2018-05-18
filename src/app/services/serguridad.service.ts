@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 import { LoggerService } from '../../agio-core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -108,5 +109,35 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.authService.isAutenticated;
+  }
+}
+
+export class Role {
+  role: string = '';
+}
+export class User {
+  idUsuario: string = '';
+  password: string = '';
+  nombre: string = '';
+  roles: Array<Role> = [];
+
+}
+
+@Injectable({providedIn: 'root'})
+export class RegisterUserDAO  {
+  private baseUrl = 'http://localhost:4321/register ';
+  private options = { withCredentials: true };
+
+  constructor(private http: HttpClient) { }
+
+  add(item: User)  {
+    return this.http.post(this.baseUrl, item);
+  }
+
+  get() {
+    return this.http.get<User>(this.baseUrl, this.options);
+  }
+  change(item: User) {
+    return this.http.put(this.baseUrl, item, this.options);
   }
 }

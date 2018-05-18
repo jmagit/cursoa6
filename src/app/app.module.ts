@@ -6,7 +6,7 @@ registerLocaleData(localeEs, 'es', localeEsExtra);
 
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AgioCoreModule, LoggerService, ERROR_LEVEL } from '../agio-core';
 import { RouterModule } from '@angular/router';
@@ -27,6 +27,7 @@ import { BLOG_COMPONENT } from './blog/blog.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MenuComponent } from './menu/menu.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +37,10 @@ import { MenuComponent } from './menu/menu.component';
     PopupComponent,
     CalculadoraComponent,
     DinamicosComponent, DynamicComponent, MyHostDirective,
-    PERSONAS_COMPONENT, BLOG_COMPONENT, LoginComponent, PageNotFoundComponent, MenuComponent,
+    PERSONAS_COMPONENT, BLOG_COMPONENT, LoginComponent, PageNotFoundComponent, MenuComponent, RegisterUserComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes),
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),
     AgioCoreModule,
     NgbModule.forRoot()
   ],
