@@ -1,3 +1,6 @@
+body {
+  padding-top: 4.5rem;
+}
 .errorMsg {
   color: red;
 }
@@ -5,10 +8,10 @@
 form .ng-invalid {
   border-color: red;
 }
-form .ng-valid {
+form .ng-valid-x {
   border-color: rgb(0, 158, 21);
 }
-form .ng-pristinex {
+form .ng-pristine-x {
   border-color: blue;
 }
 

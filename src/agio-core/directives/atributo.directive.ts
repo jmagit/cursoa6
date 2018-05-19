@@ -26,3 +26,9 @@ export class WindowConfirmDirective implements OnInit {
   }
 
 }
+// tslint:disable-next-line:directive-selector
+@Directive({  selector: '[agioShow]' })
+export class ShowDirective {
+  @HostBinding('hidden') hidden: boolean = false;
+  @Input('agioShow') set show(value: boolean) { this.hidden = !value; }
+}

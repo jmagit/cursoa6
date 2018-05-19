@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'inicio', redirectTo: '/' },
   { path: 'demo', component: DemoComponent },
-  { path: 'chisme/de/calcular', component: CalculadoraComponent },
+  { path: 'chisme/de/calcular', component: CalculadoraComponent, data: { pageTitle: 'Calculadora' } },
   { path: 'personas', component: PersonasListComponent },
   { path: 'personas/add', component: PersonasAddComponent, canActivate: [AuthGuard] },
   { path: 'personas/:id/edit', component: PersonasEditComponent, canActivate: [AuthGuard] },

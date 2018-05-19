@@ -1,96 +1,33 @@
 import { Injectable } from '@angular/core';
 import { NotifyService } from '../services/notify.service';
 import { LoggerService } from '../../agio-core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { VMServiceBase, DAOService, VMDAOServiceBase } from '../base-class/view-model';
 
-export class VMServiceBase {
-  protected modo: 'list' | 'add' | 'edit' | 'view' | 'delete' = 'list';
-  protected listado: Array<any> = [];
-  protected elemento: any = {};
-  protected idOriginal = null;
-
-  constructor(protected nsrv: NotifyService, protected out: LoggerService, protected pk = 'id') { }
-
-  public get Modo() { return this.modo; }
-  public get Listado() { return this.listado; }
-  public get Elemento() { return this.elemento; }
-
-  public list() {
-    this.modo = 'list';
-  }
-
-  public add() {
-    this.modo = 'add';
-    this.elemento = {};
-  }
-
-  public edit(key: any) {
-    // tslint:disable-next-line:triple-equals
-    const rslt = this.listado.find(item => item[this.pk] == key);
-    if (rslt) {
-      this.modo = 'edit';
-      this.elemento = Object.assign({}, rslt);
-      this.idOriginal = key;
-    } else {
-      this.nsrv.add('Elemento no encontrado.');
-    }
-  }
-
-  public view(key: any) {
-    // tslint:disable-next-line:triple-equals
-    const rslt = this.listado.find(item => item[this.pk] == key);
-    if (rslt) {
-      this.modo = 'view';
-      this.elemento = Object.assign({}, rslt);
-    } else {
-      this.nsrv.add('Elemento no encontrado.');
-    }
-  }
-
-  public remove(key: any) {
-    if (!window.confirm('¿Seguro?')) { return; }
-    // tslint:disable-next-line:triple-equals
-    const indice = this.listado.findIndex(item => item[this.pk] == key);
-    if (indice !== -1) {
-      this.listado.splice(indice, 1);
-      this.list();
-    } else {
-      this.nsrv.add('Elemento no encontrado.');
-    }
-  }
-
-  public cancel() {
-    this.elemento = {};
-    this.idOriginal = null;
-    this.list();
-  }
-
-  public send() {
-    switch (this.modo) {
-      case 'add':
-        this.listado.push(this.elemento);
-        this.cancel();
-        break;
-      case 'edit':
-          // tslint:disable-next-line:triple-equals
-          const indice = this.listado.findIndex(item => item[this.pk] == this.idOriginal);
-          if (indice !== -1) {
-            this.listado[indice] = this.elemento;
-            this.list();
-          } else {
-            this.nsrv.add('Elemento no encontrado.');
-          }
-          break;
-      case 'view':
-          this.cancel();
-          break;
-    }
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogDAOService extends DAOService<any> {
+  constructor(http: HttpClient) {
+    super(http, 'blog', { withCredentials: true });
   }
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class BlogVMService extends VMServiceBase {
+export class BlogVMService extends VMDAOServiceBase<BlogDAOService> {
+  constructor(dao: BlogDAOService, nsrv: NotifyService, out: LoggerService, router: Router) {
+    super(dao, nsrv, out, router, '/blog', 'id');
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogVMServiceOld extends VMServiceBase {
   constructor(nsrv: NotifyService, out: LoggerService) {
     super(nsrv, out, 'id');
   }

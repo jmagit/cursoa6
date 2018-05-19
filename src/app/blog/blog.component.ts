@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogVMService } from './blog-vm.service';
+import { BaseListComponent, BaseAddComponent, BaseEditComponent, BaseViewComponent } from '../base-class/vm-component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -21,14 +24,8 @@ export class BlogComponent implements OnInit {
   templateUrl: './tmpl-list.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogListComponent implements OnInit {
-
-  constructor(private vm: BlogVMService) { }
-  public get VM() { return this.vm; }
-
-  ngOnInit() {
-  }
-
+export class BlogListComponent extends BaseListComponent<BlogVMService> {
+  constructor(vm: BlogVMService) { super(vm); }
 }
 
 @Component({
@@ -36,14 +33,8 @@ export class BlogListComponent implements OnInit {
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogAddComponent implements OnInit {
-
-  constructor(private vm: BlogVMService) { }
-  public get VM() { return this.vm; }
-
-  ngOnInit() {
-  }
-
+export class BlogAddComponent extends BaseAddComponent<BlogVMService> {
+  constructor(vm: BlogVMService) { super(vm); }
 }
 
 @Component({
@@ -51,14 +42,10 @@ export class BlogAddComponent implements OnInit {
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogEditComponent implements OnInit {
-
-  constructor(private vm: BlogVMService) { }
-  public get VM() { return this.vm; }
-
-  ngOnInit() {
+export class BlogEditComponent extends BaseEditComponent<BlogVMService> {
+  constructor(vm: BlogVMService, route: ActivatedRoute, router: Router) {
+    super(vm, route, router);
   }
-
 }
 
 @Component({
@@ -66,14 +53,19 @@ export class BlogEditComponent implements OnInit {
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogViewComponent implements OnInit {
-
-  constructor(private vm: BlogVMService) { }
-  public get VM() { return this.vm; }
-
-  ngOnInit() {
+export class BlogViewComponent extends BaseViewComponent<BlogVMService> {
+  constructor(vm: BlogVMService, route: ActivatedRoute, router: Router, private title: Title) {
+    super(vm, route, router);
   }
-
+  ngOnInit() {
+    super.ngOnInit();
+    const t = this.VM.Response.subscribe(
+      data => {
+        this.title.setTitle(this.VM.Elemento.titulo);
+        t.unsubscribe();
+      }
+    );
+  }
 }
 
 export const BLOG_COMPONENT = [BlogComponent, BlogListComponent, BlogAddComponent,

@@ -19,4 +19,14 @@ export class CapitalizePipe implements PipeTransform {
         value;
   }
 }
-export const CADENAS_PIPES = [ ElipsisPipe, CapitalizePipe ];
+@Pipe({name: 'striptags'})
+export class StripTagsPipe implements PipeTransform {
+
+  transform(text: string, ...allowedTags: any[]): string {
+    return allowedTags.length > 0
+      ? text.replace(new RegExp(`<(?!\/?(${allowedTags.join('|')})\s*\/?)[^>]+>`, 'g'), '')
+      : text.replace(/<(?:.|\s)*?>/g, '');
+  }
+}
+
+export const CADENAS_PIPES = [ ElipsisPipe, CapitalizePipe, StripTagsPipe ];
