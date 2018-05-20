@@ -4,7 +4,7 @@ describe('AgioCoreModule', () => {
   let agioCoreModule: AgioCoreModule;
 
   beforeEach(() => {
-    agioCoreModule = new AgioCoreModule();
+    agioCoreModule = new AgioCoreModule(null);
   });
 
   it('should create an instance', () => {

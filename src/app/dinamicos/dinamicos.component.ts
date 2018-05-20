@@ -33,6 +33,7 @@ export class DinamicosComponent implements OnInit {
   }
 }
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[my-host]',
 })
 export class MyHostDirective {

@@ -22,4 +22,13 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it(`should have as title 'Hola Mundo'`, async(() => {
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('Hola Mundo');
+  }));
+  it('should render title in a h1 tag', async(() => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Hola Mundo!');
+  }));
 });

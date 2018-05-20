@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalculadoraComponent } from './calculadora.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { LoggerService } from '../../agio-core';
 
 describe('CalculadoraComponent', () => {
   let component: CalculadoraComponent;
@@ -8,7 +10,9 @@ describe('CalculadoraComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalculadoraComponent ]
+      declarations: [ CalculadoraComponent ],
+      schemas:      [ NO_ERRORS_SCHEMA ],
+      providers: [ LoggerService ]
     })
     .compileComponents();
   }));

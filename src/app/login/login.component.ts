@@ -13,18 +13,18 @@ export class LoginComponent implements OnInit {
   txtUsuario = 'admin';
   txtPassword = 'P@$$w0rd';
 
-  constructor(public login: LoginService, private nsrv: NotifyService, private router: Router) { }
+  constructor(public loginSrv: LoginService, private nsrv: NotifyService, private router: Router) { }
 
   ngOnInit() {
     this.cambiaTexto();
   }
 
   logInOut() {
-    if (this.login.isAutenticated) {
-      this.login.logout();
+    if (this.loginSrv.isAutenticated) {
+      this.loginSrv.logout();
       this.cambiaTexto();
     } else {
-      this.login.login(this.txtUsuario, this.txtPassword).subscribe(
+      this.loginSrv.login(this.txtUsuario, this.txtPassword).subscribe(
         data => {
           if (data) {
             this.cambiaTexto();
@@ -42,6 +42,6 @@ export class LoginComponent implements OnInit {
   }
 
   private cambiaTexto() {
-    this.txtButon = this.login.isAutenticated ? 'Log Out' : 'Log In';
+    this.txtButon = this.loginSrv.isAutenticated ? 'Log Out' : 'Log In';
   }
 }

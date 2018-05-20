@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 import { LoggerService } from '../../agio-core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
