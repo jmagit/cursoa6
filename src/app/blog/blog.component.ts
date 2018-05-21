@@ -53,7 +53,7 @@ export class BlogEditComponent extends BaseEditComponent<BlogVMService> {
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogViewComponent extends BaseViewComponent<BlogVMService> {
+export class BlogViewComponent extends BaseViewComponent<BlogVMService> implements OnInit {
   constructor(vm: BlogVMService, route: ActivatedRoute, router: Router, private title: Title) {
     super(vm, route, router);
   }

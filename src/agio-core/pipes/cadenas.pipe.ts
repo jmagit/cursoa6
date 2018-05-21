@@ -1,9 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Acorta la cadena ...
+ *
+ * @export
+ * @class ElipsisPipe
+ * @implements {PipeTransform}
+ */
 @Pipe({
   name: 'elipsis'
 })
 export class ElipsisPipe implements PipeTransform {
+  /**
+   * Funcion de transformacion
+   * @param {*} value Valor al que se aplica el pipe
+   * @param {number} maxlen Número máximo de caracteres
+   * @returns {*} La cadena acortada
+   * @memberof ElipsisPipe
+   */
   transform(value: any, maxlen: number): any {
     return (!maxlen || !value || value.length < maxlen || value.length < 4) ?
       value : (value.substr(0, maxlen - 3) + '...');

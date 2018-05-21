@@ -36,7 +36,7 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-    RouterLinkDirectiveStub, RouterLinkActiveDirectiveStub
+    RouterLinkDirectiveStub, RouterLinkActiveDirectiveStub,
   ]
 })
 export class RouterStubsModule {}
