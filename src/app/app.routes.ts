@@ -1,13 +1,12 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './main';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PersonasListComponent, PersonasViewComponent, PersonasEditComponent, PersonasAddComponent } from './personas/personas.component';
 import { BlogListComponent, BlogViewComponent, BlogAddComponent, BlogEditComponent } from './blog/blog.component';
-import { AuthGuard } from './services/serguridad.service';
+import { AuthGuard } from './security';
 import { DinamicosComponent, DynamicComponent } from './dinamicos/dinamicos.component';
-import { RegisterUserComponent } from './register-user/register-user.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -29,7 +28,5 @@ export const routes: Routes = [
   },
   { path: 'config', loadChildren: './setting/setting.module#SettingModule'},
   { path: 'dinamico', component: DynamicComponent },
-  { path: 'registro', component: RegisterUserComponent },
-  { path: '404.html', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggerService, ElipsisPipe } from '../../agio-core';
-import { NotifyService } from '../services/notify.service';
+import { NotifyService } from '../app-common';
 
 @Component({
   selector: 'app-demo',

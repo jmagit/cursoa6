@@ -14,34 +14,30 @@ import { routes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { PersonasVMService, PersonasDAOVMService } from './personas/personas-vm.service';
-import { AuthInterceptor, LoggingInterceptor } from './services/serguridad.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
-import { PopupComponent } from './popup/popup.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { DinamicosComponent, DynamicComponent, MyHostDirective } from './dinamicos/dinamicos.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { BLOG_COMPONENT } from './blog/blog.component';
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MenuComponent } from './menu/menu.component';
-import { RegisterUserComponent } from './register-user/register-user.component';
+import { MainModule } from './main/main.module';
+import { SecurityModule, AuthInterceptor, LoggingInterceptor } from './security';
+import { AppCommonModule } from './app-common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DemoComponent,
-    PopupComponent,
     CalculadoraComponent,
     DinamicosComponent, DynamicComponent, MyHostDirective,
-    PERSONAS_COMPONENT, BLOG_COMPONENT, LoginComponent, PageNotFoundComponent, MenuComponent, RegisterUserComponent,
+    PERSONAS_COMPONENT, BLOG_COMPONENT,
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),
-    AgioCoreModule,
+    AgioCoreModule, MainModule, AppCommonModule, SecurityModule,
     NgbModule.forRoot()
   ],
   providers: [

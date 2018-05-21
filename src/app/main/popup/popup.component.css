@@ -1,4 +1,4 @@
-div {
+div.kk {
   border: 1px outset black;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   border-radius: 5px;
@@ -9,7 +9,7 @@ div {
   width: 80%;
 }
 
-p {
+p.kk {
   text-align: center;
 }
 

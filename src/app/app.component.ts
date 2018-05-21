@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotifyService } from './services/notify.service';
+import { NotifyService } from './app-common';
 import { Router, NavigationEnd, ActivatedRoute, ActivationStart } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 

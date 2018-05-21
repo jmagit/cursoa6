@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NotifyService } from '../services/notify.service';
+import { NotifyService } from '../app-common';
 import { LoggerService } from '../../agio-core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

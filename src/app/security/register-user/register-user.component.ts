@@ -1,9 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { User, RegisterUserDAO, LoginService } from '../services/serguridad.service';
-import { NotifyService } from '../services/notify.service';
-import { LoggerService } from '../../agio-core';
 import { Router } from '@angular/router';
+import { LoggerService } from '../../../agio-core';
+import { NotifyService } from '../../app-common';
 
 
 @Component({

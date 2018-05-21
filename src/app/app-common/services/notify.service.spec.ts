@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { NotifyService } from './notify.service';
-import { LoggerService } from '../../agio-core';
+import { LoggerService } from '../../../agio-core';
 
 describe('NotifyService', () => {
   beforeEach(() => {

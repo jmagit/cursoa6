@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LoggerService } from '../../agio-core';
 import { Subject } from 'rxjs';
+import { LoggerService } from '../../../agio-core';
 
 type TipoError = 'error' | 'warn' | 'log';
 

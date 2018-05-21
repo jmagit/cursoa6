@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PopupComponent } from './popup.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { NotifyService } from '../services/notify.service';
-import { LoggerService } from '../../agio-core';
+import { LoggerService } from '../../../agio-core';
+import { NotifyService } from '../../app-common';
 
 describe('PopupComponent', () => {
   let component: PopupComponent;
