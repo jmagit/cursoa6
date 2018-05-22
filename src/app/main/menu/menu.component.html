@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
   <a class="navbar-brand" routerLink="/">
     <img src="assets/logo.jpg" width="120">
     <ng-content></ng-content>
@@ -26,9 +26,12 @@
         <a class="nav-link" routerLink="/blog">Blog</a>
       </li>
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link" routerLink="/config">Perfil</a>
-        </li>
-      </ul>
+        <a class="nav-link" routerLink="/tarjetas">Tarjetas</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/config">Perfil</a>
+      </li>
+    </ul>
     <app-login></app-login>
   </div>
 </nav>

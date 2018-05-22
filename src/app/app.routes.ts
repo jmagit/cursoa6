@@ -7,6 +7,7 @@ import { PersonasListComponent, PersonasViewComponent, PersonasEditComponent, Pe
 import { BlogListComponent, BlogViewComponent, BlogAddComponent, BlogEditComponent } from './blog/blog.component';
 import { AuthGuard } from './security';
 import { DinamicosComponent, DynamicComponent } from './dinamicos/dinamicos.component';
+import { TarjetasListComponent, TarjetasAddComponent, TarjetasEditComponent, TarjetasViewComponent } from './tarjetas/tarjetas.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -26,7 +27,15 @@ export const routes: Routes = [
       { path: ':id/:kk', component: BlogViewComponent},
     ]
   },
-  { path: 'config', loadChildren: './setting/setting.module#SettingModule'},
+  { path: 'tarjetas', children: [
+    { path: '', component: TarjetasListComponent },
+    { path: 'add', component: TarjetasAddComponent},
+    { path: ':id/edit', component: TarjetasEditComponent},
+    { path: ':id', component: TarjetasViewComponent},
+    { path: ':id/:kk', component: TarjetasViewComponent},
+  ]
+},
+{ path: 'config', loadChildren: './setting/setting.module#SettingModule'},
   { path: 'dinamico', component: DynamicComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -25,6 +25,7 @@ import { BLOG_COMPONENT } from './blog/blog.component';
 import { MainModule } from './main/main.module';
 import { SecurityModule, AuthInterceptor, LoggingInterceptor } from './security';
 import { AppCommonModule } from './app-common';
+import { TARJETAS_COMPONENT } from './tarjetas/tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AppCommonModule } from './app-common';
     DemoComponent,
     CalculadoraComponent,
     DinamicosComponent, DynamicComponent, MyHostDirective,
-    PERSONAS_COMPONENT, BLOG_COMPONENT,
+    PERSONAS_COMPONENT, BLOG_COMPONENT, TARJETAS_COMPONENT,
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes),

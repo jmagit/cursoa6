@@ -36,9 +36,28 @@ export class RegisterUserComponent implements OnInit {
       }, this.passwordMatchValidator),
       roles: new FormArray([])
     });
-    this.miForm.get(['password', 'passwordValue']).valueChanges.subscribe(
-      data => console.log(data)
-    );
+    for (let name in this.miForm.controls) {
+      if (this.miForm.controls[name] instanceof FormControl) {
+        this.miForm.controls[name].valueChanges.subscribe(
+          data => { this.formatErrorMessage(this.miForm.controls[name] as FormControl); }
+        );
+      }
+    }
+  }
+  private formatErrorMessage(cntr: FormControl) {
+    if (cntr.invalid) {
+      if (cntr.hasError('required')) {
+        cntr.setErrors({'customMsg': 'Es obligatorio.'});
+      } else if (cntr.hasError('minlength')) {
+        cntr.setErrors({'customMsg': `Al menos debe tener ${cntr.getError('minlength').requiredLength} caracteres.`});
+      } else if (cntr.hasError('maxlength')) {
+        cntr.setErrors({'customMsg': `Como máximo puede tener ${cntr.getError('maxlength').requiredLength} caracteres.`});
+      } else if (cntr.hasError('email')) {
+        cntr.setErrors({'customMsg': 'Formato incorrecto de correo electronico.'});
+      } else if (cntr.hasError('mismatch')) {
+        cntr.setErrors({'customMsg': 'No coincide.'});
+      }
+    }
   }
   addRole() {
     (this.miForm.get('roles') as FormArray).push(
