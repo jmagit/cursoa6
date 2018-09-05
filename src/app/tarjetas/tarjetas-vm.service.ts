@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from '../security';
 
 @Injectable({providedIn: 'root'})
 export class TarjetasDAOService {
@@ -39,14 +40,14 @@ export class TarjetasVMService {
   protected urllist = '/tarjetas';
 
   constructor(private dao: TarjetasDAOService, private nsrv: NotifyService,
-    private out: LoggerService, private router: Router) { }
+    private out: LoggerService, private router: Router, private auth: AuthService) { }
 
   public get Modo() { return this.modo; }
   public get Listado() { return this.listado; }
   public get Elemento() { return this.elemento; }
 
   public list() {
-    this.dao.query().subscribe(
+    this.dao.query(this.auth.Name).subscribe(
       data => {
         this.listado = data;
         this.modo = 'list';
